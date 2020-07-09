@@ -1,0 +1,89 @@
+<html> 
+<head>
+    <style>
+
+    </style>
+    
+</head>
+
+<body>
+    <script>
+        let playerSelection = "";
+        let computerSelection = computerPlay();
+        function computerPlay(){
+            let randomindex = Math.floor(Math.random()*3) + 1;
+            return randomindex === 1? 'paper' :
+            randomindex === 2? 'scissors' : 
+            'rock';
+        }
+            function playRound(playerSelection, computerSelection)
+           {
+            if(playerSelection == computerSelection)
+            {
+                return "You drawed, try again";
+            }
+            else if(playerSelection == 'rock' && computerSelection == 'scissors' || playerSelection == 'paper' && computerSelection == 'rock' 
+            || playerSelection == 'scissors' && computerSelection == 'paper')
+            {
+                return `You won, ${playerSelection} wins ${computerSelection}`;
+            }
+            else if(playerSelection == 'rock' && computerSelection == 'paper' || playerSelection == 'paper' && computerSelection == 'scissors'
+            || playerSelection == 'scissors' && computerSelection == 'rock')
+            {
+                return `You lost, ${playerSelection} loses to ${computerSelection}`
+            }
+           }
+            
+            
+            function status(playerSelection, computerSelection) {
+                if(playerSelection == computerSelection)
+                {}
+                else if(playerSelection == 'rock' && computerSelection == 'scissors' || playerSelection == 'paper' && computerSelection == 'rock' 
+                || playerSelection == 'scissors' && computerSelection == 'paper')
+                {return 1; }
+                else {
+                    return -1;
+                }
+            }
+
+
+            function game() {    
+                let playerscore = 0;
+                let computerscore = 0;
+                computerSelection = computerPlay();
+                    playerSelection = prompt("rock, paper, scissors?");
+                    let score;
+                    status(playerSelection, computerSelection);
+                    let result = playRound(playerSelection, computerSelection)
+                    console.log(result)
+
+                    if(score == 1)
+                    {
+                        playerscore++;
+                        return `playerscore ${playerscore}`;
+                    }
+                    else if(score == -1)
+                    {
+                        computerscore++;
+                        return `computerscore ${computerscore}`;
+                    }
+                    if(playerscore == 5)
+                    {
+                        return `You Win!! Computer had ${computerscore} points.`
+                    }
+                    else if(computerscore == 5)
+                    {
+                        return `You lost!! You had ${playerscore} points `
+                    }
+                    
+
+                    
+                }
+
+
+        
+    </script>
+</body>
+
+
+</html>
